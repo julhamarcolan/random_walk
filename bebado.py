@@ -22,7 +22,7 @@ for i in range(NB):
             #ne = ne + 1 
             ne += 1 
         else:
-            nd += + 1
+            nd +=  1
     d = (nd - ne)*L
     x.append(d) 
     ne = 0 
