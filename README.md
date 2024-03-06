@@ -5,7 +5,7 @@ Each drunkard randomly decides whether to take a step to the left or right at ea
 
 **Requirements:** 
 
-~~~~bash
+~~~bash
 pip install matplotlib
 pip install random
 ~~~
