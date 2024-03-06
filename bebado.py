@@ -1,41 +1,45 @@
-'''
-Autora: Julia Marcolan
-Contato: juliamarcolant@gmail.com
-'''
+"""
+Random Walk Simulation of Drunkards
+
+Author: Julia Marcolan
+
+This script simulates random walks for a specified number of drunkards over a specified number of steps.
+Each drunkard randomly decides whether to step left or right at each iteration.
+
+Parameters:
+- NB: Number of drunkards in the simulation.
+- N: Number of steps each drunkard takes.
+- L: Size of each drunkard's step.
+- x: List to store the final distances traveled by each drunkard.
+
+The script iterates over each drunkard, calculates the final distances from the starting point, and displays a histogram of the final distances.
+
+"""
 
 import matplotlib.pyplot as plt
-import random
+import numpy as np
 
-NB = 100000  #número de bebados 
-N = 5000    #número de passos de cada bebado 
-ne = 0 #numero de passos para a esquerda
-nd = 0 #numero de passos para a direita
-L = 1 #tamanho do passo do bebado 
-x  = [] 
+# Parameters
+NB = 100000  # Number of drunkards
+N = 5000     # Number of steps each drunkard takes
+L = 1        # Size of each drunkard's step
+x = []       # List to store the final distances
 
+# Loop for each drunkard in the simulation
+for _ in range(NB):
+    # Generate N random steps to the left (-1) or right (1) using numpy
+    steps = np.random.choice([-1, 1], N)
+    
+    # Calculate the final distance traveled by the drunkard by summing all steps and multiplying by the step size (L)
+    final_distance = np.sum(steps) * L
+    
+    # Append the calculated final distance to the list x, which will store the final distances of all drunkards
+    x.append(final_distance)
 
-# Para cada bebado calculo as iterações para N passos 
-for i in range(NB):
-    for j in range(N):
-        rand = random.random()
-        if(rand > 0.5):
-            #ne = ne + 1 
-            ne += 1 
-        else:
-            nd +=  1
-    d = (nd - ne)*L
-    x.append(d) 
-    ne = 0 
-    nd = 0 
- 
-plt.hist(x, 1000)
+# Display the histogram of final distances
+plt.hist(x, bins=1000, color='blue', alpha=0.7)
+plt.xlabel('Final Distance')
+plt.ylabel('Frequency')
+plt.title('Histogram of Random Walk Simulation for Drunkards')
+plt.grid(True)
 plt.show()
-
-    
-
-    
-
-
-
-        
-
