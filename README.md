@@ -7,6 +7,6 @@ Each drunkard randomly decides whether to take a step to the left or right at ea
 
 ~~~bash
 pip install matplotlib
-pip install random
+pip install numpy
 ~~~
 
